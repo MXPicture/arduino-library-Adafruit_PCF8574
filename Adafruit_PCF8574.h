@@ -21,9 +21,9 @@
 #include <Adafruit_BusIO_Register.h>
 #include <Adafruit_I2CDevice.h>
 #include <Adafruit_I2CDeviceSoft.h>
-#include <PicI2CSoft.h> // https://github.com/MXPicture/arduino-library-i2c-soft
+#include <PicI2C.h> // https://github.com/MXPicture/arduino-library-i2c
 
-using pic_i2soft::SoftTwoWire;
+using pic_i2c::SoftTwoWire;
 
 #define PCF8574_I2CADDR_DEFAULT 0x20 ///< PCF8574 default I2C address
 
