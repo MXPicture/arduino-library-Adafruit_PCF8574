@@ -23,7 +23,7 @@
 #include <Adafruit_I2CDeviceSoft.h>
 #include <PicI2C.h> // https://github.com/MXPicture/arduino-library-i2c
 
-using pic_i2c::SoftTwoWire;
+using pic_i2c::SoftI2C;
 
 #define PCF8574_I2CADDR_DEFAULT 0x20 ///< PCF8574 default I2C address
 
@@ -36,7 +36,7 @@ public:
     Adafruit_PCF8574();
     bool begin(uint8_t i2c_addr = PCF8574_I2CADDR_DEFAULT, TwoWire* wire = &Wire);
 
-    virtual bool begin(SoftTwoWire* wire, uint8_t i2c_addr = PCF8574_I2CADDR_DEFAULT) {
+    virtual bool begin(SoftI2C* wire, uint8_t i2c_addr = PCF8574_I2CADDR_DEFAULT) {
         this->i2c_dev = new Adafruit_I2CDeviceSoft(i2c_addr, wire);
         return (this->i2c_dev->begin());
     };
