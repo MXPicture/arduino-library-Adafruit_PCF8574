@@ -33,24 +33,24 @@ using pic_i2c::SoftI2C;
  */
 class Adafruit_PCF8574 {
 public:
-    Adafruit_PCF8574();
-    bool begin(uint8_t i2c_addr = PCF8574_I2CADDR_DEFAULT, TwoWire* wire = &Wire);
+  Adafruit_PCF8574();
+  bool begin(uint8_t i2c_addr = PCF8574_I2CADDR_DEFAULT, TwoWire *wire = &Wire);
 
-    virtual bool begin(SoftI2C* wire, uint8_t i2c_addr = PCF8574_I2CADDR_DEFAULT) {
-        this->i2c_dev = new Adafruit_I2CDeviceSoft(i2c_addr, wire);
-        return (this->i2c_dev->begin());
-    };
+  virtual bool begin(SoftI2C* wire, uint8_t i2c_addr = PCF8574_I2CADDR_DEFAULT) {
+    this->i2c_dev = new Adafruit_I2CDeviceSoft(i2c_addr, wire);
+    return (this->i2c_dev->begin());
+  };
 
-    bool digitalWriteByte(uint8_t d);
-    bool digitalWrite(uint8_t pinnum, bool val);
-    uint8_t digitalReadByte(void);
-    bool digitalRead(uint8_t pinnum);
-    bool pinMode(uint8_t pinnum, uint8_t val);
+  bool digitalWriteByte(uint8_t d);
+  bool digitalWrite(uint8_t pinnum, bool val);
+  uint8_t digitalReadByte(void);
+  bool digitalRead(uint8_t pinnum);
+  bool pinMode(uint8_t pinnum, uint8_t val);
 
 private:
-    uint8_t _readbuf = 0, _writebuf = 0;
+  uint8_t _readbuf = 0, _writebuf = 0;
 
-    Adafruit_I2CDevice* i2c_dev;
+  Adafruit_I2CDevice *i2c_dev;
 };
 
 #endif
