@@ -88,8 +88,7 @@ uint8_t Adafruit_PCF8574::digitalReadByte(void) {
 bool Adafruit_PCF8574::digitalWrite(uint8_t pinnum, bool val) {
   if (val) {
     _writebuf |= 1 << pinnum;
-  }
-  else {
+  } else {
     _writebuf &= ~(1 << pinnum);
   }
   return i2c_dev->write(&_writebuf, 1);
@@ -107,8 +106,7 @@ bool Adafruit_PCF8574::digitalWrite(uint8_t pinnum, bool val) {
 bool Adafruit_PCF8574::pinMode(uint8_t pinnum, uint8_t val) {
   if ((val == INPUT) || (val == INPUT_PULLUP)) {
     _writebuf |= 1 << pinnum;
-  }
-  else {
+  } else {
     _writebuf &= ~(1 << pinnum);
   }
   return i2c_dev->write(&_writebuf, 1);
